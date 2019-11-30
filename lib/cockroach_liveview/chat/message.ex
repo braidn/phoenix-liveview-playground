@@ -1,11 +1,18 @@
 defmodule CockroachLiveview.Chat.Message do
+  alias CockroachLiveview.Auth.User
+  alias CockroachLiveview.Chat.{Conversation, SeenMessage, MessageReaction}
+
   use Ecto.Schema
   import Ecto.Changeset
 
   schema "chat_messages" do
     field :content, :string
-    field :conversation_id, :id
-    field :user_id, :id
+
+    belongs_to :conversation, Conversation
+    belongs_to :user, User
+
+    has_many :seen_messages, SeenMessage
+    has_many :message_reactions, MessageReaction
 
     timestamps()
   end
