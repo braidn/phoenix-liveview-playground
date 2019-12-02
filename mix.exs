@@ -43,7 +43,8 @@ defmodule CockroachLiveview.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:ecto_cockroachdb, "~> 1.0.0"}
+      {:ecto_cockroachdb, "~> 1.0.0"},
+      {:phoenix_live_view, "~> 0.4.1"}
     ]
   end
 

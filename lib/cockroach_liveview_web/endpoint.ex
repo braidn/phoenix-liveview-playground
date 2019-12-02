@@ -1,6 +1,7 @@
 defmodule CockroachLiveviewWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :cockroach_liveview
 
+  socket "/live", Phoenix.LiveView.Socket
   socket "/socket", CockroachLiveviewWeb.UserSocket,
     websocket: true,
     longpoll: false
