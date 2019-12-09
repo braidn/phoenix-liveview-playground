@@ -15,7 +15,10 @@ config :cockroach_liveview, CockroachLiveviewWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "PoFzjQgBIe0T9gNQVFyRsKe30pn5wRvf/wGje2RnMHrfY02HKxtpQMI6IYbglXoL",
   render_errors: [view: CockroachLiveviewWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: CockroachLiveview.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: CockroachLiveview.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [
+    signing_salt: System.get_env("LIVE_VIEW_SALT")
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -29,6 +32,3 @@ config :phoenix, :json_library, Jason
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
 
-live_view: [
-  signing_salt: System.get_env("LIVE_VIEW_SALT")
-]
