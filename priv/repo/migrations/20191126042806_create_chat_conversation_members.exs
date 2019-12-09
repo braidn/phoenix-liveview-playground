@@ -13,9 +13,5 @@ defmodule CockroachLiveview.Repo.Migrations.CreateChatConversationMembers do
     create index(:chat_conversation_members, [:conversation_id])
     create index(:chat_conversation_members, [:user_id])
     create unique_index(:chat_conversation_members, [:conversation_id, :user_id])
-    create unique_index(:chat_conversation_members, [:conversation_id], 
-      where: "OWNER = TRUE",
-      name: "chat_conversation_members_owner"
-    )
   end
 end
